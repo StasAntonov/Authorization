@@ -1,6 +1,8 @@
 <resources>
 
-    <style name="Theme.Authorization" parent="Theme.MaterialComponents.NoActionBar">
-        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+    <style name="Theme.Authorization" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:statusBarColor">@color/white</item>
+        <item name="android:background">@color/white</item>
     </style>
 </resources>
