@@ -1,3 +1,22 @@
 <resources>
-    <dimen name="fab_margin">16dp</dimen>
+    <!--    MARGIN-->
+    <dimen name="margin_base">16dp</dimen>
+    <dimen name="margin_base_vertical">32dp</dimen>
+
+    <!--    PADDING-->
+    <dimen name="padding_button">18dp</dimen>
+    <dimen name="padding_input">18dp</dimen>
+
+    <!--RADIUS-->
+    <dimen name="radius_button">6dp</dimen>
+
+    <!--    TEXT-->
+    <dimen name="text_input">15sp</dimen>
+    <dimen name="text_header">36sp</dimen>
+    <dimen name="text_button">13sp</dimen>
+
+    <!--    STROKE-->
+    <dimen name="stroke_button">2dp</dimen>
+    <dimen name="stroke_input">2dp</dimen>
+
 </resources>

@@ -1,15 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/appCompatTextView"
+            style="@style/Text.Header"
             android:layout_width="match_parent"
-            android:text="HELLO"
+            android:layout_height="match_parent"
             android:gravity="center"
-            android:layout_height="match_parent" />
+            android:text="Register" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/Button.Black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="CLICK"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/appCompatTextView"
+            app:layout_constraintVertical_bias="0.216" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            style="@style/InputField"
+            android:text="input firlfd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
