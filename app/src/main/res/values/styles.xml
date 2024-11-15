@@ -34,6 +34,7 @@
     <style name="Button">
         <item name="android:textAppearance">@style/Text.Button</item>
         <item name="android:padding">@dimen/padding_button</item>
+        <item name="android:textAllCaps">true</item>
     </style>
 
     <style name="Button.Black">

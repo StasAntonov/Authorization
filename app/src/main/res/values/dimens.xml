@@ -3,6 +3,9 @@
     <dimen name="margin_base">16dp</dimen>
     <dimen name="margin_base_vertical">32dp</dimen>
 
+    <dimen name="margin_between_button">10dp</dimen>
+    <dimen name="margin_over_button">20dp</dimen>
+
     <!--    PADDING-->
     <dimen name="padding_button">18dp</dimen>
     <dimen name="padding_input">18dp</dimen>
