@@ -1,8 +1,9 @@
 <resources>
     <!-- Base application theme. -->
     <style name="Theme.Authorization" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:navigationBarColor">@android:color/transparent</item>
         <item name="android:windowLightStatusBar">true</item>
         <item name="android:statusBarColor">@color/white</item>
-        <item name="android:background">@color/white</item>
+        <item name="android:windowBackground">@color/white</item>
     </style>
 </resources>

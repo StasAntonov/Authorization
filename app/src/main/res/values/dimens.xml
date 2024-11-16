@@ -7,8 +7,10 @@
     <dimen name="margin_over_button">20dp</dimen>
 
     <!--    PADDING-->
+    <dimen name="padding_base">16dp</dimen>
     <dimen name="padding_button">18dp</dimen>
     <dimen name="padding_input">18dp</dimen>
+    <dimen name="padding_arrow_back">16dp</dimen>
 
     <!--RADIUS-->
     <dimen name="radius_button">6dp</dimen>

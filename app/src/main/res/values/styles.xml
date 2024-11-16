@@ -14,6 +14,7 @@
     <style name="Text.InputField">
         <item name="android:fontFamily">@font/roboto</item>
         <item name="android:textSize">@dimen/text_input</item>
+        <item name="android:maxLines">1</item>
     </style>
 
     <style name="Text.Button">
@@ -24,10 +25,11 @@
     </style>
 
     <!--INPUT-->
-    <style name="InputField">
-        <item name="android:textAppearance">@style/Text.InputField</item>
-        <item name="android:background">@drawable/bg_edit_text</item>
-        <item name="android:padding">@dimen/padding_input</item>
+    <style name="InputField" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeWidth">@dimen/stroke_input</item>
+        <item name="boxStrokeWidthFocused">@dimen/stroke_input</item>
+        <item name="boxStrokeColor">@color/input_field_active</item>
+        <item name="hintTextColor">@color/input_field_active</item>
     </style>
 
     <!--BUTTON-->
@@ -46,6 +48,5 @@
         <item name="android:textColor">@color/black</item>
         <item name="android:background">@drawable/bg_button_white</item>
     </style>
-
 
 </resources>
