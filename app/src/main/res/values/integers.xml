@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <integer name="min_phone_length">7</integer>
     <integer name="max_phone_length">13</integer>
+    <integer name="min_password_length">8</integer>
     <integer name="max_password_length">16</integer>
 </resources>

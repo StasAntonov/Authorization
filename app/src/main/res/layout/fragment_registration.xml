@@ -12,6 +12,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="@dimen/padding_arrow_back"
+            android:background="?attr/selectableItemBackgroundBorderless"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_arrow_back" />
@@ -51,7 +52,6 @@
                         style="@style/Text.InputField"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
                         android:inputType="text" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -68,7 +68,6 @@
                         style="@style/Text.InputField"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
                         android:inputType="text" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -86,6 +85,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         style="@style/Text.InputField"
+                        android:digits="+0123456789"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="phone" />

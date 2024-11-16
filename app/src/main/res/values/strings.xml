@@ -9,5 +9,21 @@
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="phone_helper_text">Enter a phone number with 7–13 digits</string>
-    <string name="password_helper_text"><![CDATA[8–16 chars: A-Z, a-z, 0-9, @#$%&*!]]></string>
+    <string name="password_helper_text"><![CDATA[8–16 chars: A–Z, a–z, 0–9, @#$%&*!]]></string>
+
+    <!--    VALIDATION ERROR-->
+    <string name="password_size_error">Password must be between 8 and 16 characters.</string>
+    <string name="password_lower_case_error">Password must contain at least one lowercase letter.</string>
+    <string name="password_upper_case_error">Password must contain at least one uppercase letter.</string>
+    <string name="password_digit_error">Password must contain at least one digit.</string>
+    <string name="password_special_character_error">Password must contain at least one special character (@\$%*?&amp;).</string>
+
+    <string name="phone_size_error">Incorrect phone size</string>
+    <string name="phone_format_error">Incorrect phone number</string>
+
+    <string name="email_format_error">Invalid email address</string>
+
+    <string name="name_format_error">Invalid name format</string>
+
+    <string name="required">Required*</string>
 </resources>
