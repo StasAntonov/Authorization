@@ -1,9 +1,9 @@
 package com.example.authorization.presentation.registration
 
-import androidx.annotation.StringRes
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.viewModels
 import com.example.authorization.R
+import com.example.authorization.common.ext.setErrorFieldByRes
 import com.example.authorization.databinding.FragmentRegistrationBinding
 import com.example.authorization.presentation.base.BaseFragment
 import com.google.android.material.textfield.TextInputLayout
@@ -30,14 +30,14 @@ class RegistrationFragment :
             .forEach { layout ->
                 layout.editText?.doAfterTextChanged {
                     if (layout.isErrorEnabled) {
-                        layout.setErrorFieldByRes(null)
+                        layout.setErrorFieldByRes(requireContext(), null)
                     }
                 }
 
                 layout.editText?.setOnFocusChangeListener { _, hasFocus ->
                     if (!hasFocus) {
                         val text = layout.editText?.text.toString()
-                        if (text.isBlank() || text.isEmpty()) return@setOnFocusChangeListener
+                        if (text.isEmpty()) return@setOnFocusChangeListener
                         layout.validateField()
                     }
                 }
@@ -54,7 +54,7 @@ class RegistrationFragment :
                 .filter { it.editText?.text.isNullOrEmpty() && it.editText?.text.isNullOrBlank() }
                 .takeIf { it.isNotEmpty() }
                 ?.forEach { layout ->
-                    layout.setErrorFieldByRes(R.string.required)
+                    layout.setErrorFieldByRes(requireContext(), R.string.required)
                 }
 
             requiredFields.find { it.hasFocus() }?.let { layout ->
@@ -68,29 +68,25 @@ class RegistrationFragment :
         super.initObservers()
 
         viewModel.firstNameError.observe(viewLifecycleOwner) {
-            etFirstName.setErrorFieldByRes(it.message)
+            etFirstName.setErrorFieldByRes(requireContext(), it.message)
+
         }
 
         viewModel.lastNameError.observe(viewLifecycleOwner) {
-            etLastName.setErrorFieldByRes(it.message)
+            etLastName.setErrorFieldByRes(requireContext(), it.message)
         }
 
         viewModel.phoneError.observe(viewLifecycleOwner) {
-            etPhone.setErrorFieldByRes(it.message)
+            etPhone.setErrorFieldByRes(requireContext(), it.message)
         }
 
         viewModel.emailError.observe(viewLifecycleOwner) {
-            etEmail.setErrorFieldByRes(it.message)
+            etEmail.setErrorFieldByRes(requireContext(), it.message)
         }
 
         viewModel.passwordError.observe(viewLifecycleOwner) {
-            etPassword.setErrorFieldByRes(it.message)
+            etPassword.setErrorFieldByRes(requireContext(), it.message)
         }
-    }
-
-    private fun TextInputLayout.setErrorFieldByRes(@StringRes message: Int?) {
-        this.error = message?.let(::getString)
-        this.isErrorEnabled = message != null
     }
 
     private fun TextInputLayout.validateField() {
