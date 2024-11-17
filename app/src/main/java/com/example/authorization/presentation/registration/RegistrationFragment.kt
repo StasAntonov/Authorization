@@ -103,7 +103,10 @@ class RegistrationFragment :
                     state.error ?: getString(R.string.unknown_error)
                 )
 
-                RegistrationViewModel.UiRegistrationState.Success -> toast(getString(R.string.register_success))
+                RegistrationViewModel.UiRegistrationState.Success -> {
+                    toast(getString(R.string.register_success))
+                    goBack()
+                }
             }
         }
     }
