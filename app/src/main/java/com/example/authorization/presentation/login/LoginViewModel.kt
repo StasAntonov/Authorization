@@ -1,9 +1,9 @@
 package com.example.authorization.presentation.login
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.authorization.common.livedata.SingleLiveEvent
 import com.example.authorization.data.base.ApiResponse
 import com.example.authorization.domain.model.LoginUser
 import com.example.authorization.domain.repository.LoginRepository
@@ -29,10 +29,10 @@ class LoginViewModel @Inject constructor(
         data object Error : LoginValidationState()
     }
 
-    private val _loginResult = MutableLiveData<UiLoginState>()
+    private val _loginResult = SingleLiveEvent<UiLoginState>()
     val loginResult: LiveData<UiLoginState> get() = _loginResult
 
-    private val _loginState = MutableLiveData<LoginValidationState>()
+    private val _loginState = SingleLiveEvent<LoginValidationState>()
     val loginState: LiveData<LoginValidationState> get() = _loginState
 
     fun validateLogin(login: String, minSize: Int, maxSize: Int) {

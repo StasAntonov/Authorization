@@ -24,11 +24,22 @@
         android:id="@+id/login"
         android:name="com.example.authorization.presentation.login.LoginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" />
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_login_to_userFragment"
+            app:destination="@id/user"
+            app:popUpTo="@id/start"
+            app:popUpToInclusive="false" />
+    </fragment>
 
     <fragment
         android:id="@+id/registration"
         android:name="com.example.authorization.presentation.registration.RegistrationFragment"
         android:label="fragment_registration"
         tools:layout="@layout/fragment_registration" />
+    <fragment
+        android:id="@+id/user"
+        android:name="com.example.authorization.presentation.user.UserFragment"
+        android:label="fragment_user"
+        tools:layout="@layout/fragment_user" />
 </navigation>

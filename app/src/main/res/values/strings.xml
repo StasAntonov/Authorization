@@ -21,7 +21,6 @@
     <!--    LOGIN UI-->
     <string name="email_or_phone">Email or phone</string>
     <string name="login_or_password_incorrect">Login or password incorrect</string>
-    <string name="login_success">Login success</string>
 
     <!--    VALIDATION ERROR-->
     <string name="password_size_error">Password must be between 8 and 16 characters.</string>
@@ -38,4 +37,7 @@
     <string name="name_format_error">Invalid name format</string>
 
     <string name="required">Required*</string>
+
+    <!--    USER UI-->
+    <string name="hello_user">Hello user</string>
 </resources>

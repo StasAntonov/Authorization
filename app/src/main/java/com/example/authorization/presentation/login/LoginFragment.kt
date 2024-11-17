@@ -81,8 +81,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
                 )
 
                 is LoginViewModel.UiLoginState.Success -> {
-                    toast(getString(R.string.login_success))
-                    goBack()
+                    navigate(LoginFragmentDirections.actionLoginToUserFragment())
                 }
             }
         }
