@@ -4,7 +4,9 @@ import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.viewModels
 import com.example.authorization.R
 import com.example.authorization.common.ext.setErrorFieldByRes
+import com.example.authorization.common.ext.toast
 import com.example.authorization.databinding.FragmentRegistrationBinding
+import com.example.authorization.domain.model.RegisterUser
 import com.example.authorization.presentation.base.BaseFragment
 import com.google.android.material.textfield.TextInputLayout
 import dagger.hilt.android.AndroidEntryPoint
@@ -46,7 +48,14 @@ class RegistrationFragment :
         btnRegister.setOnClickListener {
             fun tryRegister() {
                 if (requiredFields.all { !it.isErrorEnabled }) {
-                    viewModel.register()
+                    val user = RegisterUser(
+                        email = etEmail.editText?.text.toString(),
+                        firstName = etFirstName.editText?.text.toString(),
+                        lastName = etLastName.editText?.text.toString(),
+                        phoneNumber = etPhone.editText?.text.toString(),
+                        password = etPassword.editText?.text.toString(),
+                    )
+                    viewModel.register(user)
                 }
             }
 
@@ -86,6 +95,16 @@ class RegistrationFragment :
 
         viewModel.passwordError.observe(viewLifecycleOwner) {
             etPassword.setErrorFieldByRes(requireContext(), it.message)
+        }
+
+        viewModel.registerResult.observe(viewLifecycleOwner) { state ->
+            when (state) {
+                is RegistrationViewModel.UiRegistrationState.Error -> toast(
+                    state.error ?: getString(R.string.unknown_error)
+                )
+
+                RegistrationViewModel.UiRegistrationState.Success -> toast(getString(R.string.register_success))
+            }
         }
     }
 

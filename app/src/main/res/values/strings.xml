@@ -1,6 +1,10 @@
 <resources>
-    <string name="app_name">Authorization</string>
 
+    <!--    BASIC-->
+    <string name="app_name">Authorization</string>
+    <string name="unknown_error">Unknown error</string>
+
+    <!--    START UI-->
     <string name="log_in">Log in</string>
     <string name="register">Register</string>
 
@@ -12,6 +16,7 @@
     <string name="password">Password</string>
     <string name="phone_helper_text">Enter a phone number with 7–13 digits</string>
     <string name="password_helper_text"><![CDATA[8–16 chars: A–Z, a–z, 0–9, @#$%&*!]]></string>
+    <string name="register_success">Registration success</string>
 
     <!--    LOGIN UI-->
     <string name="email_or_phone">Email or phone</string>
