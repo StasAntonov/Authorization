@@ -1,12 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
-        style="@style/Text.Button"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="login" />
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/img_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="@dimen/padding_arrow_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_arrow_back" />
+
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/margin_base"
+            android:layout_marginBottom="@dimen/margin_base_vertical"
+            app:layout_constraintBottom_toTopOf="@id/btn_register"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/img_back">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="@dimen/padding_base">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/Text.Header"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/log_in" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/et_login"
+                    style="@style/InputField"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_base_vertical"
+                    android:hint="@string/email_or_phone"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        style="@style/Text.InputField"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:digits="+0123456789"
+                        android:inputType="phone" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/et_password"
+                    style="@style/InputField"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_base"
+                    android:hint="@string/password"
+                    app:counterEnabled="true"
+                    app:counterMaxLength="@integer/max_password_length"
+                    app:endIconMode="password_toggle"
+                    app:endIconTint="@color/black"
+                    app:helperText="@string/password_helper_text"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        style="@style/Text.InputField"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPassword" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </ScrollView>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_register"
+            style="@style/Button.Black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_base"
+            android:layout_marginBottom="@dimen/margin_base_vertical"
+            android:text="@string/log_in"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
 
 
