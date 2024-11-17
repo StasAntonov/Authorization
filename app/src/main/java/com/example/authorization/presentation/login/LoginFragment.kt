@@ -6,6 +6,7 @@ import com.example.authorization.R
 import com.example.authorization.common.ext.setErrorFieldByRes
 import com.example.authorization.common.ext.toast
 import com.example.authorization.databinding.FragmentLoginBinding
+import com.example.authorization.domain.model.LoginUser
 import com.example.authorization.presentation.base.BaseFragment
 import com.google.android.material.textfield.TextInputLayout
 import dagger.hilt.android.AndroidEntryPoint
@@ -43,13 +44,46 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
                 ?.forEach { layout ->
                     layout.setErrorFieldByRes(requireContext(), R.string.required)
                 } ?: run {
-                viewModel.login(
-                    etLogin.editText?.text.toString(),
-                    etPassword.editText?.text.toString()
+
+                viewModel.validateLogin(
+                    login = etLogin.editText?.text.toString(),
+                    minSize = resources.getInteger(R.integer.min_phone_length),
+                    maxSize = resources.getInteger(R.integer.max_phone_length)
                 )
-                toast("Login")
             }
 
+        }
+    }
+
+    override fun initObservers() = with(binding) {
+        super.initObservers()
+
+        viewModel.loginState.observe(viewLifecycleOwner) { state ->
+            when (state) {
+                LoginViewModel.LoginValidationState.Error -> toast(getString(R.string.login_or_password_incorrect))
+                is LoginViewModel.LoginValidationState.Success -> {
+                    val loginUser = LoginUser(
+                        email = state.email,
+                        password = etPassword.editText?.text.toString(),
+                        phoneNumber = state.phone
+                    )
+
+                    viewModel.login(loginUser)
+                }
+            }
+        }
+
+        viewModel.loginResult.observe(viewLifecycleOwner) { state ->
+            when (state) {
+
+                is LoginViewModel.UiLoginState.Error -> toast(
+                    state.error ?: getString(R.string.unknown_error)
+                )
+
+                is LoginViewModel.UiLoginState.Success -> {
+                    navigate(LoginFragmentDirections.actionLoginToUserFragment())
+                }
+            }
         }
     }
 
