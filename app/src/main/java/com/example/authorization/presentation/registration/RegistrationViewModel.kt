@@ -3,14 +3,28 @@ package com.example.authorization.presentation.registration
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.example.authorization.data.base.ApiResponse
+import com.example.authorization.domain.model.RegisterUser
+import com.example.authorization.domain.repository.RegisterRepository
 import com.example.authorization.util.UserValidator
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class RegistrationViewModel @Inject constructor(
-
+    private val repository: RegisterRepository
 ) : ViewModel() {
+
+    sealed class UiRegistrationState {
+        data object Success : UiRegistrationState()
+        data class Error(val error: String?) : UiRegistrationState()
+    }
+
+    private val _registerResult = MutableLiveData<UiRegistrationState>()
+    val registerResult: LiveData<UiRegistrationState> get() = _registerResult
+
 
     private val _firstNameError = MutableLiveData<UserValidator.NameState>()
     val firstNameError: LiveData<UserValidator.NameState> get() = _firstNameError
@@ -51,7 +65,13 @@ class RegistrationViewModel @Inject constructor(
         _passwordError.postValue(UserValidator.validatePassword(password, minSize, maxSize))
     }
 
-    fun register() {
+    fun register(model: RegisterUser) {
+        viewModelScope.launch {
+            when (val result = repository.register(model)) {
+                is ApiResponse.Error -> _registerResult.postValue(UiRegistrationState.Error(result.throwable.message))
+                is ApiResponse.Success -> _registerResult.postValue(UiRegistrationState.Success)
+            }
+        }
     }
 
 }

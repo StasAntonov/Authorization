@@ -1,6 +1,7 @@
 package com.example.authorization.di
 
 import com.example.authorization.BuildConfig
+import com.example.authorization.data.remote.RegisterApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -33,5 +34,11 @@ object NetworkModule {
             builder.addInterceptor(logging)
         }
         return builder.build()
+    }
+
+    @Provides
+    @Singleton
+    fun provideRegisterApi(retrofit: Retrofit): RegisterApi {
+        return retrofit.create(RegisterApi::class.java)
     }
 }
