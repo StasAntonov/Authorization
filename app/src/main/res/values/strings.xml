@@ -40,4 +40,10 @@
 
     <!--    USER UI-->
     <string name="hello_user">Hello user</string>
+
+    <!--    QR UI-->
+    <string name="cancelled">Cancelled</string>
+    <string name="scan_qr">Scan a QR</string>
+    <string name="camera_permission_required">Camera permission required</string>
+
 </resources>
