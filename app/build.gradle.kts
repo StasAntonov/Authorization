@@ -83,4 +83,7 @@ dependencies {
 
     // Lifecycles only (without ViewModel or LiveData)
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.7")
+
+    // Qr scanner
+    implementation("com.journeyapps:zxing-android-embedded:4.3.0")
 }

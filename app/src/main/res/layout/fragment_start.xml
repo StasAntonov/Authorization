@@ -9,6 +9,7 @@
         android:orientation="horizontal">
 
         <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/appCompatImageView"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginBottom="@dimen/margin_over_button"
@@ -16,6 +17,16 @@
             app:layout_constraintBottom_toTopOf="@id/bt_login"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/img_background" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ic_qr_code"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/padding_base"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_qr_code" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/bt_login"

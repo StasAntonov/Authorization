@@ -2,6 +2,7 @@ package com.example.authorization.di
 
 import com.example.authorization.BuildConfig
 import com.example.authorization.data.remote.LoginApi
+import com.example.authorization.data.remote.QrCodeApi
 import com.example.authorization.data.remote.RegisterApi
 import dagger.Module
 import dagger.Provides
@@ -49,6 +50,12 @@ object NetworkModule {
     @Singleton
     fun provideLoginApi(retrofit: Retrofit): LoginApi {
         return retrofit.create(LoginApi::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideQrApi(retrofit: Retrofit): QrCodeApi {
+        return retrofit.create(QrCodeApi::class.java)
     }
 
 }
